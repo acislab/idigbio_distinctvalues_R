@@ -1,0 +1,12 @@
+pipeline {
+    agent { label 'spark' }
+    stages {
+        stage('Build') {
+            steps {
+                echo "Testing Jenkins jobs using pipelines"
+                sh "./run_R.sh"
+                echo "Complete."
+            }
+        }
+    }
+}
