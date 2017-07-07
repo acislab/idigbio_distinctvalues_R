@@ -12,6 +12,6 @@ for(i in ColumnName){
     print(i)
     query<-paste0("SELECT ",i,",count(*) FROM parquet.`/guoda/data/idigbio-20170609T073048-1M.parquet`GROUP BY ", i)
     DF<-sql(query)
-    command<-paste0("iDigBio_2017-06-09_10:02_uniq_",i,".csv")
+    command<-paste0("iDigBio_20170609T073048_uniq_",i,".csv")
     write.df(DF,command,"csv")
 }
