@@ -1,0 +1,12 @@
+pipeline {
+    agent { label 'spark' }
+    stages {
+        stage('Build') {
+            steps {
+                echo "Testing Jenkins jobs using pipelines"
+                sh "./iDigBio_uniq_csv.sh"
+                echo "Complete."
+            }
+        }
+    }
+}
