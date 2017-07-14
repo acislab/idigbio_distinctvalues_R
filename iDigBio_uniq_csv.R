@@ -7,8 +7,9 @@ sc <- sparkR.session(master = "local[*]")
 entiredata <- read.df("/guoda/data/idigbio-20170609T073048-1M.parquet")
 
 ColumnName<- colnames(entiredata)
+NewColumnNames<-ColumnName[18:76]
 
-for(i in ColumnName){
+for(i in NewColumnNames){
     print(i)
     query<-paste0("SELECT ",i,",count(*) FROM parquet.`/guoda/data/idigbio-20170609T073048-1M.parquet`GROUP BY ", i)
     DF<-sql(query)
