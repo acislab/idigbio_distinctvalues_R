@@ -7,10 +7,12 @@ sc <- sparkR.session(master = "local[*]")
 entiredata <- read.df("/guoda/data/idigbio-20170609T073048-1M.parquet")
 
 ColumnName<- colnames(entiredata)
-NewColumnNames<-ColumnName[33:76]
 
-for(i in NewColumnNames){
+for(i in ColumnName){
     if("geopoint" %in% i){
+        next
+    }
+    if("data" %in% i){
         next
     }
     print(i)
