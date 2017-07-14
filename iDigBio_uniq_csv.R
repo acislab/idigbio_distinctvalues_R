@@ -7,9 +7,12 @@ sc <- sparkR.session(master = "local[*]")
 entiredata <- read.df("/guoda/data/idigbio-20170609T073048-1M.parquet")
 
 ColumnName<- colnames(entiredata)
-NewColumnNames<-ColumnName[18:76]
+NewColumnNames<-ColumnName[15:76]
 
 for(i in NewColumnNames){
+    if("geopoint" %in% i){
+        next
+    }
     print(i)
     query<-paste0("SELECT ",i,",count(*) FROM parquet.`/guoda/data/idigbio-20170609T073048-1M.parquet`GROUP BY ", i)
     DF<-sql(query)
