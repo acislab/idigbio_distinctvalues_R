@@ -1,0 +1,18 @@
+pipeline {
+    agent { label 'spark' }
+    stages {
+        stage('Build') {
+            steps {
+                echo "Jenkins jobs using pipelines"
+                sh "./RunSampleCSV.sh"
+                echo "Complete."
+            }
+         stage('Build') {
+            steps {
+                echo "Ceph"
+                hdfs_ceph_client --tar path
+                echo "Complete."
+            }
+        }
+    }
+}
