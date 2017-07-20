@@ -1,6 +1,7 @@
 pipeline {
     agent { label 'spark' }
-         stage('Build') {
+    stages {
+        stage('Build') {
             steps {
                 echo "Ceph"
                 hdfs_ceph_client hdfs://mesos01.acis.ufl.edu/outputs/ACountryDFSS.csv
@@ -8,4 +9,4 @@ pipeline {
             }
         }
     }
-
+}
