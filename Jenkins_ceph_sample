@@ -3,9 +3,9 @@ pipeline {
          stage('Build') {
             steps {
                 echo "Ceph"
-                hdfs_ceph_client --tar hdfs://mesos01.acis.ufl.edu/outputs/ACountryDFSS.csv
+                hdfs_ceph_client hdfs://mesos01.acis.ufl.edu/outputs/ACountryDFSS.csv
                 echo "Complete."
             }
         }
     }
-}
+
