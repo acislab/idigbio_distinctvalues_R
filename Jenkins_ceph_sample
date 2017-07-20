@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Ceph"
-                sh "hdfs_ceph_client --cat hdfs://mesos01.acis.ufl.edu/outputs/ACountryDFSS.csv"
+                sh "hdfs_ceph_client --cat /outputs/ACountryDFSS.csv"
                 echo "Complete."
             }
         }
