@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Ceph"
-                sh "hdfs_ceph_client --cat /outputs/ACountryDFSS.csv"
+                sh "hdfs_ceph_client --tar /outputs/idigbio"
                 echo "Complete."
             }
         }
